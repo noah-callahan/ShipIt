@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ship: one
+  job: one
+  priority: MyString
+
+two:
+  ship: two
+  job: two
+  priority: MyString
