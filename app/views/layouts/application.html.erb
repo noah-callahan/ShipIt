@@ -14,13 +14,15 @@
 
     <div>
 
-      <%= yield %>
-
-      <div class="home_buttons">
+     <div class="home_buttons">
          <% if current_shipper %>
           <div> <%= link_to("Log Out", destroy_shipper_session_path, method: :delete) %> </div>
          <% end %>
       </div>
+
+      <%= yield %>
+
+    
 
     </div>
 

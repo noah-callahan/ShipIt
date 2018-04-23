@@ -1,2 +1,23 @@
-<h1>Ships#index</h1>
-<p>Find me in app/views/ships/index.html.erb</p>
+<h1>Current Ships</h1>
+
+<table style="text-align:center;">
+  <tr>
+    <th>Name</th>
+    <th>Max Payload</th> 
+    <th>Current Payload</th>
+    <th>Location</th>
+    <th>Shipper ID</th>
+  </tr>
+
+  <% @ships.each do |ship| %>
+  
+    <tr>
+        <td><%= ship.name %></td>
+        <td><%= ship.container_max %></td>
+        <td><%= ship.payload %></td>
+        <td><%= ship.location %></td>
+        <td><%= ship.shipper.id %></td>
+    </tr>
+
+  <% end %>
+</table>
