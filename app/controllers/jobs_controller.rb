@@ -6,9 +6,13 @@ class JobsController < ApplicationController
   end
 
   def new
+    @jobs = Job.new
+    @ships = Ship.all
+    @minimum_description_length = 50
   end
 
   def create
+    p params.inspect
   end
 
   def edit
