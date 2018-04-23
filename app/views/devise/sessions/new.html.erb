@@ -1,6 +1,7 @@
 <h2>Log in</h2>
+<p> <%= link_to("<< ShipIt Home", home_index_path) %> </p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(@shipper, as: @shipper, url: dashboard_index_path(@shipper)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
