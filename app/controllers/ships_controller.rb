@@ -3,6 +3,7 @@ class ShipsController < ApplicationController
   end
 
   def show
+    @ships = Ship.find(params[:id])
   end
 
   def create
@@ -21,5 +22,7 @@ class ShipsController < ApplicationController
   end
 
   def destroy
+    @ship = Ship.find(params[:id])
+    @ship.destroy
   end
 end
