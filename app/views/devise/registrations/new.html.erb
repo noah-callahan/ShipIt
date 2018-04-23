@@ -1,6 +1,7 @@
 <h2>Sign up</h2>
+<p> <%= link_to("<< ShipIt Home", home_index_path) %> </p>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(@shipper, as: @shipper, url: dashboard_index_path(@shipper)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">

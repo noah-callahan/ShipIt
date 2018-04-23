@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1> ShipIt Inc. </h1>
+
+    <div>
+
+      <%= yield %>
+
+      <div class="home_buttons">
+         <% if current_shipper %>
+          <div> <%= link_to("Log Out", destroy_shipper_session_path, method: :delete) %> </div>
+         <% end %>
+      </div>
+
+    </div>
+
+    <div> &copy 2018 ShipIt Inc. </div>
   </body>
 </html>

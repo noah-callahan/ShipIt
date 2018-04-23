@@ -1,0 +1,13 @@
+// styles related to the Home controller here
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.home_buttons {
+  padding: 5px;
+  margin: 5px;
+}
