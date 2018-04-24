@@ -17,6 +17,7 @@
      <div class="home_buttons">
          <% if current_shipper %>
           <div> <%= link_to("Log Out", destroy_shipper_session_path, method: :delete) %> </div>
+          <div> <%= link_to("Dashboard", dashboard_index_path) %> </div>
          <% end %>
       </div>
 

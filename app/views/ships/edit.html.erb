@@ -1,2 +1,35 @@
 <h1>Ships#edit</h1>
 <p>Find me in app/views/ships/edit.html.erb</p>
+
+<%= form_for @ship, url: ship_path(@ship.id), method: :patch do |f|  %>
+
+
+    <div>
+        <%= f.label "Name" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label "Container Max" %>
+        <%= f.text_area :container_max %>
+    </div>
+
+    <div>
+        <%= f.hidden_field :payload, :value => 0 %>
+    </div>
+
+    <div>
+        <%= f.label "Location" %>
+        <%= f.text_area :location %>
+    </div>
+
+    <div>
+        <%= f.label "Shipper ID" %>
+        <%= f.text_area :shipper_id %>
+    </div>
+
+    <div>
+        <%= f.submit 'Submit'%>
+    </div>
+
+<% end %>
