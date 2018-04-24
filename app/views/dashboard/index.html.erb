@@ -2,3 +2,65 @@
 
 <div class="dashboard_buttons"> <%= link_to("Create Ship", new_ship_path) %> </div>
 <div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div>
+
+
+<h1> Current Ships</h1>
+
+<table style="text-align:center;">
+  <tr>
+    <th>Ship ID</th>
+    <th>Name</th>
+    <th>Max Payload</th> 
+    <th>Current Payload</th>
+    <th>Location</th>
+    <th>Shipper ID</th>
+  </tr>
+
+<% @ships.each do |ship| %>
+  
+    <tr>
+        <td><%= ship.id %></td>
+        <td><%= link_to(ship.name, ship_path(ship.id)) %></td>
+        <td><%= ship.container_max %></td>
+        <td><%= ship.payload %></td>
+        <td><%= ship.location %></td>
+        <td><%= ship.shipper.id %></td>
+    </tr>
+
+  <% end %>
+</table>
+
+
+
+<h1> Current Jobs </h1>
+
+<table style="text-align:center;">
+
+<tr>
+    <th>Job ID</th>
+    <th>Name</th>
+    <th>Descritpion</th> 
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Cost</th>
+    <th>Total Containers</th>
+    <th>Ship ID</th>
+    <th>Shipper ID</th>
+  </tr>
+
+<% @jobs.each do |job| %>
+  
+    <tr>
+        <td><%= job.id %></td>
+        <td><%= job.name %></td>
+        <td><%= job.description %></td>
+        <td><%= job.origin %></td>
+        <td><%= job.destination %></td>
+        <td><%= job.cost %></td>
+        <td><%= job.total_containers %></td>
+        <td><%= job.ship_id %></td>
+        <td><%= job.shipper_id %></td>
+    </tr>
+
+  <% end %>
+  </table>
