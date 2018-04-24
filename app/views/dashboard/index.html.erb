@@ -10,14 +10,14 @@
   <tr>
     <th>Ship ID</th>
     <th>Name</th>
-    <th>Max Payload</th> 
+    <th>Max Payload</th>
     <th>Current Payload</th>
     <th>Location</th>
     <th>Shipper ID</th>
   </tr>
 
 <% @ships.each do |ship| %>
-  
+
     <tr>
         <td><%= ship.id %></td>
         <td><%= link_to(ship.name, ship_path(ship.id)) %></td>
@@ -25,6 +25,7 @@
         <td><%= ship.payload %></td>
         <td><%= ship.location %></td>
         <td><%= ship.shipper.id %></td>
+        <td><%= image_tag ship.avatar.url(:thumb), class: "avatar-img" %></td>
     </tr>
 
   <% end %>
@@ -39,7 +40,7 @@
 <tr>
     <th>Job ID</th>
     <th>Name</th>
-    <th>Descritpion</th> 
+    <th>Descritpion</th>
     <th>Origin</th>
     <th>Destination</th>
     <th>Cost</th>
@@ -49,7 +50,7 @@
   </tr>
 
 <% @jobs.each do |job| %>
-  
+
     <tr>
         <td><%= job.id %></td>
         <td><%= job.name %></td>

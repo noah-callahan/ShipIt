@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+
   def index
     @ships = Ship.all
   end
@@ -15,12 +16,12 @@ class ShipsController < ApplicationController
   def new
     @ships = Ship.all
     @ship = Ship.new
-    
+
   end
 
   def edit
     @ship = Ship.find(params[:id])
-    
+
 
   end
 
@@ -45,7 +46,7 @@ class ShipsController < ApplicationController
   private
 
   def ship_params
-    params.require(:ship).permit(:name, :container_max, :payload, :location, :shipper_id)
+    params.require(:ship).permit(:name, :container_max, :payload, :location, :shipper_id, :avatar)
   end
 
 end
