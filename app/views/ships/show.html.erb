@@ -3,9 +3,7 @@
 <p>Max payload: <%=@ship.container_max%></p>
 <p>Current payload: <%=@ship.payload%></p>
 <p>Current Location: <%=@ship.location%></p>
+<p><%= image_tag @ship.avatar.url%></p>
 
 <%= button_to('Delete Ship', ship_path, method: :delete, data: {confirm: "Are you sure?"}) %>
 <%= button_to('Edit Ship', edit_ship_path(@ship.id), method: :get) %>
-
-
-

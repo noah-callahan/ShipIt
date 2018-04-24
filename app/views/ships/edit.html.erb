@@ -28,6 +28,15 @@
         <%= f.text_area :shipper_id %>
     </div>
 
+    <div class="avatar-img">
+      <%= image_tag @ship.avatar.url(:thumb), class: "avatar-img"%>
+    </div>
+
+    <div>
+        <%= f.label "Ship Photo" %>
+        <%= f.file_field :avatar %>
+    </div>
+
     <div>
         <%= f.submit 'Submit'%>
     </div>
