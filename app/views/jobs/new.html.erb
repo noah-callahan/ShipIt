@@ -34,8 +34,7 @@
   </div>
 
   <div class="field form">
-    <%= f.label :ship_id %><br />
-    <%= select("job","ship_id", options_for_select(ships_array)) %>
+    <%= f.hidden_field(:ship_id, :value => nil) %>
   </div>
 
   <div class="field form">
@@ -45,4 +44,13 @@
   <div class="actions form">
     <%= f.submit "Create Job" %>
   </div>
+<% end %>
+
+<% if false %>
+
+<div class="field form">
+    <%= f.label :ship_id %><br />
+    <%= select("job","ship_id", options_for_select(ships_array)) %>
+</div>
+
 <% end %>

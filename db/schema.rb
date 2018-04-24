@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2018_04_24_151827) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.index ["shipper_id"], name: "index_ships_on_shipper_id"
-    t.index [nil], name: "index_ships_on_job_id"
   end
 
 end
