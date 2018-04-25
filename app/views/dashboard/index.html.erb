@@ -3,6 +3,22 @@
 <div class="dashboard_buttons"> <%= link_to("Create Ship", new_ship_path) %> </div>
 <div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div>
 
+<h1>Create Contract</h1>
+
+<%= form_with model: @contract do |c| %>
+
+  <%=c.label 'Ship'%>
+  <%= select("contract","ship_id", options_for_select(ships_array)) %>
+
+  <%=c.label 'Job ID'%>
+  <%= c.text_field :job_id %>
+
+  <%=c.label 'Priority'%>
+  <%= select("contract","priority", options_for_select([['Normal'], ['Urgent'], ['Critical']])) %>
+
+  <%= c.submit %>
+<% end %>
+
 
 <h1> Current Ships</h1>
 
@@ -45,7 +61,7 @@
     <th>Destination</th>
     <th>Cost</th>
     <th>Total Containers</th>
-    <th>Ship ID</th>
+    <th>Ship(s)</th>
     <th>Shipper ID</th>
   </tr>
 
@@ -59,9 +75,39 @@
         <td><%= job.destination %></td>
         <td><%= job.cost %></td>
         <td><%= job.total_containers %></td>
-        <td><% if job.ship_id == nil %>UNASSIGNED<% else %><%= job.ship_id %><% end %></td>
+
+        <td><% if job.ship_id == nil %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
+        </td>
+        
         <td><%= job.shipper_id %></td>
     </tr>
 
   <% end %>
   </table>
+
+  <h1> Current Contracts </h1>
+
+  <table style="text-align:center;">
+
+  <tr>
+    <th>Contract ID</th>
+    <th>Ship</th>
+    <th>Job Name</th>
+    <th>Job ID</th>
+    <th>Priority</th>
+    
+  </tr>
+
+  <% @contracts.each do |c| %>
+
+    <tr>
+        <td><%= c.id %></td>
+        <td><%= c.ship.name %></td>
+        <td><%= c.job.name %></td>
+        <td><%= c.job_id %></td>
+        <td><%= c.priority %></td>
+    </tr>
+
+  <% end %>
+  </table>
+
