@@ -1,2 +1,13 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h1>Job Name: <%=@job.name%></h1>
+
+<p>Description: <%=@job.description%></p>
+<p>Origin: <%=@job.origin%></p>
+<p>Destination: <%=@job.destination%></p>
+<p>Cost: <%=@job.cost%></p>
+<p>Total Containers: <%=@job.total_containers%></p>
+<p>Ship(s) <%=@job.ships.collect(&:name)%></p>
+
+
+
+<%= button_to('Dont click yet', job_path, method: :delete, data: {confirm: "Are you sure?"}) %>
+<%= button_to('Edit', edit_job_path(@job.id), method: :get) %>
