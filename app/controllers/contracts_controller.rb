@@ -4,7 +4,7 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.create(contract_params)
-    Job.update(@contract.job_id, :ship_id => @contract.ship_id)
+    
     redirect_to '/'
   end
 

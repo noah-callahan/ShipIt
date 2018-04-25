@@ -69,14 +69,14 @@
 
     <tr>
         <td><%= job.id %></td>
-        <td><%= job.name %></td>
+        <td><%= link_to(job.name, job_path(job.id)) %></td>
         <td><%= job.description %></td>
         <td><%= job.origin %></td>
         <td><%= job.destination %></td>
         <td><%= job.cost %></td>
         <td><%= job.total_containers %></td>
 
-        <td><% if job.ship_id == nil %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
+        <td><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
         </td>
         
         <td><%= job.shipper_id %></td>
