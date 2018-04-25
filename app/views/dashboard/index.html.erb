@@ -59,7 +59,7 @@
         <td><%= job.destination %></td>
         <td><%= job.cost %></td>
         <td><%= job.total_containers %></td>
-        <td><%= job.ship_id %></td>
+        <td><% if job.ship_id == nil %>UNASSIGNED<% else %><%= job.ship_id %><% end %></td>
         <td><%= job.shipper_id %></td>
     </tr>
 
