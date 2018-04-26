@@ -1,2 +1,46 @@
-<h1>Jobs#edit</h1>
-<p>Find me in app/views/jobs/edit.html.erb</p>
+<h1>Edit Job: #{@job.name}</h1>
+
+
+<%= form_for @job, url: job_path(@job.id), method: :patch do |f|  %>
+
+
+    <div>
+        <%= f.label "Name" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label "Description" %>
+        <%= f.text_area :description %>
+    </div>
+
+    <div>
+        <%= f.label "Origin" %>
+        <%= f.text_area :origin %>
+    </div>
+
+    <div>
+        <%= f.label "Destination" %>
+        <%= f.text_area :destination %>
+    </div>
+
+    <div>
+        <%= f.label "Cost" %>
+        <%= f.text_area :cost %>
+    </div>
+
+    <div>
+        <%= f.label "Total Containers" %>
+        <%= f.text_area :total_containers %>
+    </div>
+
+    <div>
+        <%= f.hidden_field(:shipper_id, :value => current_shipper.id) %>
+    </div>
+
+
+    <div>
+        <%= f.submit 'Submit'%>
+    </div>
+
+<% end %>
