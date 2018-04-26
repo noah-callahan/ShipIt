@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'contracts/show'
   get '/' => 'home#index'
   get 'home/index' => 'home#index'
-
   post 'dashboard/index'
   get 'dashboard/index'
 

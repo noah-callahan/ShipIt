@@ -1,56 +1,59 @@
-<h1>Create a new Job</h1>
-<div> <%= link_to("<< back to dashboard", dashboard_index_path) %> </div>
+<div class="table_style">
+  <h1>Create a new Job</h1>
 
-<%= form_for @job, url: jobs_path do |f| %>
+  <%= form_for @job, url: jobs_path do |f| %>
+
+    <div class="field form">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field form">
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field form">
+      <%= f.label :origin %> <br />
+      <%= select("job", "origin", options_for_select(LOCATIONS)) %>
+    </div>
+
+    <div class="field form">
+      <%= f.label :destination %><br />
+      <%= select("job", "destination", options_for_select(LOCATIONS)) %>
+    </div>
+
+    <div class="field form">
+      <%= f.label :cost %><br />
+      <%= select("job", "cost", options_for_select([[1000], [1500], [2000], [2500], [3000], [3500]])) %>
+    </div>
+
+    <div class="field form">
+      <%= f.label :total_containers %><br />
+      <%= select("job", "total_containers", options_for_select([['9000'], ['7500'], ['6000'], ['4500'], ['3000'], ['1500']])) %>
+    </div>
+
+    <div class="field form">
+      <%= f.hidden_field(:ship_id, :value => nil) %>
+    </div>
+
+    <div class="field form">
+       <%= f.hidden_field(:shipper_id, :value => current_shipper.id) %>
+    </div>
+
+    <div class="actions form">
+      <%= f.submit "Create Job" %>
+    </div>
+  <% end %>
+
+  <% if false %>
 
   <div class="field form">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+      <%= f.label :ship_id %><br />
+      <%= select("job","ship_id", options_for_select(ships_array)) %>
   </div>
 
-  <div class="field form">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field form">
-    <%= f.label :origin %> <br />
-    <%= select("job", "origin", options_for_select(LOCATIONS)) %>
-  </div>
-
-  <div class="field form">
-    <%= f.label :destination %><br />
-    <%= select("job", "destination", options_for_select(LOCATIONS)) %>
-  </div>
-
-  <div class="field form">
-    <%= f.label :cost %><br />
-    <%= select("job", "cost", options_for_select([[1000], [1500], [2000], [2500], [3000], [3500]])) %>
-  </div>
-
-  <div class="field form">
-    <%= f.label :total_containers %><br />
-    <%= select("job", "total_containers", options_for_select([['9000'], ['7500'], ['6000'], ['4500'], ['3000'], ['1500']])) %>
-  </div>
-
-  <div class="field form">
-    <%= f.hidden_field(:ship_id, :value => nil) %>
-  </div>
-
-  <div class="field form">
-     <%= f.hidden_field(:shipper_id, :value => current_shipper.id) %>
-  </div>
-
-  <div class="actions form">
-    <%= f.submit "Create Job" %>
-  </div>
-<% end %>
-
-<% if false %>
-
-<div class="field form">
-    <%= f.label :ship_id %><br />
-    <%= select("job","ship_id", options_for_select(ships_array)) %>
+  <% end %>
 </div>
 
-<% end %>
+<div> <%= link_to("<< back to dashboard", dashboard_index_path) %> </div>
