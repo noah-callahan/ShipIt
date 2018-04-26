@@ -7,7 +7,57 @@ body {
   align-items: center;
 }
 
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  background-color: #dce2ed;
+  color: black;
+  border-bottom: 2px solid #525b6d;
+}
+
+.buffer {
+  height: 225px;
+}
+
+.logo {
+  font-size: 3.8em;
+}
+
 .home_buttons {
+  text-align: center;
   padding: 5px;
+  margin: 25px;
+}
+
+.home_buttons a {
+  text-decoration: none;
+  color: #525b6d;
+}
+
+.home_buttons a:hover {
+  color: #2b6dd8;
+}
+
+.inline {
+  display: inline;
   margin: 5px;
+}
+
+.btn {
+  text-align: center;
+  padding: 5px;
+  background-color: #525b6d;
+  border: 2px solid black;
+}
+
+.btn a {
+  color: #dce2ed;
+  text-decoration: none;
+}
+
+.btn a:hover {
+  color: #9df2d7;
 }

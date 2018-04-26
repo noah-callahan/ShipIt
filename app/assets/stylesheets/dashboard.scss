@@ -1,6 +1,33 @@
 // styles related to the Dashboard controller here
 
 .dashboard_buttons {
+  display: inline;
   padding: 5px;
   margin: 5px;
+}
+
+.dashboard_buttons a {
+  text-decoration: none;
+  color: #525b6d;
+}
+
+.dashboard_buttons a:hover {
+  color: #2b6dd8;
+}
+
+.dash_wrapper {
+  border: 1px solid #525b6d;
+  padding: 35px;
+  margin: 10px;
+}
+
+.dash_tables {
+  text-align: center;
+}
+
+.table_style {
+  background-color: #dce2ed;
+  border: 2px solid #525b6d;
+  padding: 10px;
+  margin: 15px;
 }

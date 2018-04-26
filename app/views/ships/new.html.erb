@@ -1,67 +1,67 @@
-<h1>Current Ships</h1>
+<div class="table_style">
+  <h1>Current Ships</h1>
 
-<table style="text-align:center;">
-  <tr>
-    <th>Name</th>
-    <th>Max Payload</th>
-    <th>Current Payload</th>
-    <th>Location</th>
-    <th>Shipper ID</th>
-  </tr>
-  <% @ships.each do |ship| %>
+  <table style="text-align:center;">
     <tr>
-        <td><%= ship.name %></td>
-        <td><%= ship.container_max %></td>
-        <td><%= ship.payload %></td>
-        <td><%= ship.location %></td>
-        <td><%= ship.shipper.id %></td>
+      <th>Name</th>
+      <th>Max Payload</th>
+      <th>Current Payload</th>
+      <th>Location</th>
+      <th>Shipper ID</th>
     </tr>
+    <% @ships.each do |ship| %>
+      <tr>
+          <td><%= ship.name %></td>
+          <td><%= ship.container_max %></td>
+          <td><%= ship.payload %></td>
+          <td><%= ship.location %></td>
+          <td><%= ship.shipper.id %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="table_style">
+  <h1>Create a new Ship</h1>
+
+  <%= form_for @ship, url: ships_path do |f|  %>
+
+
+      <div>
+          <%= f.label "Name" %>
+          <%= f.text_field :name %>
+      </div>
+
+      <div>
+          <%= f.label "Container Max" %>
+          <%= f.text_area :container_max %>
+      </div>
+
+      <div>
+          <%= f.hidden_field :payload, :value => 0 %>
+      </div>
+
+      <div>
+          <%= f.label "Location" %>
+          <%= f.text_area :location %>
+      </div>
+
+      <div>
+          <%= f.label "Shipper ID" %>
+          <%= f.text_area :shipper_id %>
+      </div>
+
+      <div>
+          <%= f.label "Ship Photo" %>
+          <%= f.file_field :avatar %>
+      </div>
+
+      <div>
+          <%= f.submit 'Submit'%>
+      </div>
+
   <% end %>
-</table>
-
-
-
-<h1>Create a new Ship</h1>
-
-
-<%= form_for @ship, url: ships_path do |f|  %>
-
-
-    <div>
-        <%= f.label "Name" %>
-        <%= f.text_field :name %>
-    </div>
-
-    <div>
-        <%= f.label "Container Max" %>
-        <%= f.text_area :container_max %>
-    </div>
-
-    <div>
-        <%= f.hidden_field :payload, :value => 0 %>
-    </div>
-
-    <div>
-        <%= f.label "Location" %>
-        <%= f.text_area :location %>
-    </div>
-
-    <div>
-        <%= f.label "Shipper ID" %>
-        <%= f.text_area :shipper_id %>
-    </div>
-
-    <div>
-        <%= f.label "Ship Photo" %>
-        <%= f.file_field :avatar %>
-    </div>
-
-    <div>
-        <%= f.submit 'Submit'%>
-    </div>
-
-<% end %>
-
+</div>
 
 
 

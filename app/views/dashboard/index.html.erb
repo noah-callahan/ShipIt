@@ -1,113 +1,120 @@
+<div class="dash_wrapper">
 <h1>Shipper Dashboard</h1>
 
 <div class="dashboard_buttons"> <%= link_to("Create Ship", new_ship_path) %> </div>
 <div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div>
 
-<h1>Create Contract</h1>
+<div class="table_style">
+  <h2>Create Contract</h2>
+    <div class="dash_tables">
+       <%= form_with model: @contract do |c| %>
 
-<%= form_with model: @contract do |c| %>
+        <%=c.label 'Ship'%>
+        <%= select("contract","ship_id", options_for_select(ships_array)) %>
 
-  <%=c.label 'Ship'%>
-  <%= select("contract","ship_id", options_for_select(ships_array)) %>
+        <%=c.label 'Job ID'%>
+        <%= c.text_field :job_id %>
 
-  <%=c.label 'Job ID'%>
-  <%= c.text_field :job_id %>
+        <%=c.label 'Priority'%>
+        <%= select("contract","priority", options_for_select([['Normal'], ['Urgent'], ['Critical']])) %>
 
-  <%=c.label 'Priority'%>
-  <%= select("contract","priority", options_for_select([['Normal'], ['Urgent'], ['Critical']])) %>
+        <%= c.submit %>
+      <% end %>
+    </div>
+</div>
 
-  <%= c.submit %>
-<% end %>
+<div class="table_style">
+  <h2> Current Ships</h2>
 
-
-<h1> Current Ships</h1>
-
-<table style="text-align:center;">
-  <tr>
-    <th>Ship ID</th>
-    <th>Name</th>
-    <th>Max Payload</th>
-    <th>Current Payload</th>
-    <th>Location</th>
-    <th>Shipper ID</th>
-  </tr>
-
-<% @ships.each do |ship| %>
-
+  <table class="dash_tables">
     <tr>
-        <td><%= ship.id %></td>
-        <td><%= link_to(ship.name, ship_path(ship.id)) %></td>
-        <td><%= ship.container_max %></td>
-        <td><%= ship.payload %></td>
-        <td><%= ship.location %></td>
-        <td><%= ship.shipper.id %></td>
-        <td><%= image_tag ship.avatar.url(:thumb), class: "avatar-img" %></td>
+      <th>Ship ID</th>
+      <th>Name</th>
+      <th>Max Payload</th>
+      <th>Current Payload</th>
+      <th>Location</th>
+      <th>Shipper ID</th>
     </tr>
 
-  <% end %>
-</table>
+  <% @ships.each do |ship| %>
 
+      <tr>
+          <td><%= ship.id %></td>
+          <td><%= link_to(ship.name, ship_path(ship.id)) %></td>
+          <td><%= ship.container_max %></td>
+          <td><%= ship.payload %></td>
+          <td><%= ship.location %></td>
+          <td><%= ship.shipper.id %></td>
+          <td><%= image_tag ship.avatar.url(:thumb), class: "avatar-img" %></td>
+      </tr>
 
-
-<h1> Current Jobs </h1>
-
-<table style="text-align:center;">
-
-<tr>
-    <th>Job ID</th>
-    <th>Name</th>
-    <th>Descritpion</th>
-    <th>Origin</th>
-    <th>Destination</th>
-    <th>Cost</th>
-    <th>Total Containers</th>
-    <th>Ship(s)</th>
-    <th>Shipper ID</th>
-  </tr>
-
-<% @jobs.each do |job| %>
-
-    <tr>
-        <td><%= job.id %></td>
-        <td><%= link_to(job.name, job_path(job.id)) %></td>
-        <td><%= job.description %></td>
-        <td><%= job.origin %></td>
-        <td><%= job.destination %></td>
-        <td><%= job.cost %></td>
-        <td><%= job.total_containers %></td>
-
-        <td><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
-        </td>
-        
-        <td><%= job.shipper_id %></td>
-    </tr>
-
-  <% end %>
+    <% end %>
   </table>
+</div>
 
-  <h1> Current Contracts </h1>
+<div class="table_style">
+  <h2> Current Jobs </h2>
 
-  <table style="text-align:center;">
+  <table class="dash_tables">
 
   <tr>
-    <th>Contract ID</th>
-    <th>Ship</th>
-    <th>Job Name</th>
-    <th>Job ID</th>
-    <th>Priority</th>
-    
-  </tr>
-
-  <% @contracts.each do |c| %>
-
-    <tr>
-        <td><%= c.id %></td>
-        <td><%= c.ship.name %></td>
-        <td><%= c.job.name %></td>
-        <td><%= c.job_id %></td>
-        <td><%= c.priority %></td>
+      <th>Job ID</th>
+      <th>Name</th>
+      <th>Descritpion</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Cost</th>
+      <th>Total Containers</th>
+      <th>Ship(s)</th>
+      <th>Shipper ID</th>
     </tr>
 
-  <% end %>
-  </table>
+  <% @jobs.each do |job| %>
 
+      <tr>
+          <td><%= job.id %></td>
+          <td><%= link_to(job.name, job_path(job.id)) %></td>
+          <td><%= job.description %></td>
+          <td><%= job.origin %></td>
+          <td><%= job.destination %></td>
+          <td><%= job.cost %></td>
+          <td><%= job.total_containers %></td>
+
+          <td><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
+          </td>
+
+          <td><%= job.shipper_id %></td>
+      </tr>
+
+    <% end %>
+    </table>
+</div>
+
+<div class="table_style">
+    <h2> Current Contracts </h2>
+
+    <table class="dash_tables">
+
+    <tr>
+      <th>Contract ID</th>
+      <th>Ship</th>
+      <th>Job Name</th>
+      <th>Job ID</th>
+      <th>Priority</th>
+
+    </tr>
+
+    <% @contracts.each do |c| %>
+
+      <tr>
+          <td><%= c.id %></td>
+          <td><%= c.ship.name %></td>
+          <td><%= c.job.name %></td>
+          <td><%= c.job_id %></td>
+          <td><%= c.priority %></td>
+      </tr>
+
+    <% end %>
+    </table>
+  </div>
+</div>
