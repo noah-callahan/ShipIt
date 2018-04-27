@@ -7,7 +7,7 @@
 <div class="table_style">
   <h2>Create Contract</h2>
     <div class="dash_tables">
-       <%= form_with model: @contract do |c| %>
+       <%= form_with model: @contract, url: contracts_path do |c| %>
 
         <%=c.label 'Ship'%>
         <%= select("contract","ship_id", options_for_select(ships_array)) %>
@@ -104,7 +104,11 @@
 
     </tr>
 
-    <% @contracts.each do |c| %>
+
+    <tr id="ajax"></tr>
+
+
+    <% @contracts.reverse.each do |c| %>
 
       <tr>
           <td><%= c.id %></td>

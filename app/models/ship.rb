@@ -3,7 +3,7 @@ class Ship < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :contracts
-	has_many :jobs, through: :contracts
+	has_many :jobs, through: :contracts, dependent: :destroy
   belongs_to :shipper
   validates :name, presence: true, uniqueness: true
 end
