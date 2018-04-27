@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'dashboard/index'
   get 'dashboard/index'
 
-  post '/contracts' => 'contracts#create'
+  post '/contracts' => 'contracts#create', as: 'contracts'
 
   devise_for :shippers
   resources :ships

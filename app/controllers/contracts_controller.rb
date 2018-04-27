@@ -3,17 +3,20 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.create(contract_params)
-    
-    redirect_to '/'
+    @c = Contract.new(contract_params)
+    if @c.save
+      respond_to do |format|
+        format.js
+      end
+    else
+      redirect_to '/'
+    end
   end
 
   def edits
   end
 
   def show
-
-
   end
 
   private
