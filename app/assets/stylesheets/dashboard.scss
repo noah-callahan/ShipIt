@@ -3,7 +3,6 @@
 .dashboard_buttons {
   display: inline;
   padding: 5px;
-  margin: 5px;
 }
 
 .dashboard_buttons a {
@@ -18,7 +17,7 @@
 .dash_wrapper {
   border: 1px solid #525b6d;
   padding: 35px;
-  margin: 10px;
+  margin: 15px;
 }
 
 .dash_tables {
@@ -30,4 +29,10 @@
   border: 2px solid #525b6d;
   padding: 10px;
   margin: 15px;
+}
+
+.row-style, .data-style {
+  padding: 5px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }

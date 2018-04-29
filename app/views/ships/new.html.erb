@@ -3,19 +3,19 @@
 
   <table style="text-align:center;">
     <tr>
-      <th>Name</th>
-      <th>Max Payload</th>
-      <th>Current Payload</th>
-      <th>Location</th>
-      <th>Shipper ID</th>
+      <th class="row-style">Name</th>
+      <th class="row-style">Max Payload</th>
+      <th class="row-style">Current Payload</th>
+      <th class="row-style">Location</th>
+      <th class="row-style">Shipper ID</th>
     </tr>
     <% @ships.each do |ship| %>
       <tr>
-          <td><%= ship.name %></td>
-          <td><%= ship.container_max %></td>
-          <td><%= ship.payload %></td>
-          <td><%= ship.location %></td>
-          <td><%= ship.shipper.id %></td>
+          <td class="data-style"><%= ship.name %></td>
+          <td class="data-style"><%= ship.container_max %></td>
+          <td class="data-style"><%= ship.payload %></td>
+          <td class="data-style"><%= ship.location %></td>
+          <td class="data-style"><%= ship.shipper.id %></td>
       </tr>
     <% end %>
   </table>
