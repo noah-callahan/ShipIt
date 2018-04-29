@@ -28,24 +28,24 @@
 
   <table class="dash_tables">
     <tr>
-      <th>Ship ID</th>
-      <th>Name</th>
-      <th>Max Payload</th>
-      <th>Current Payload</th>
-      <th>Location</th>
-      <th>Shipper ID</th>
+      <th class="row-style">Ship ID</th>
+      <th class="row-style">Name</th>
+      <th class="row-style">Max Payload</th>
+      <th class="row-style">Current Payload</th>
+      <th class="row-style">Location</th>
+      <th class="row-style">Shipper ID</th>
     </tr>
 
   <% @ships.each do |ship| %>
 
       <tr>
-          <td><%= ship.id %></td>
-          <td><%= link_to(ship.name, ship_path(ship.id)) %></td>
-          <td><%= ship.container_max %></td>
-          <td><%= ship.payload %></td>
-          <td><%= ship.location %></td>
-          <td><%= ship.shipper.id %></td>
-          <td><%= image_tag ship.avatar.url(:thumb), class: "avatar-img" %></td>
+          <td class="data-style"><%= ship.id %></td>
+          <td class="data-style"><%= link_to(ship.name, ship_path(ship.id)) %></td>
+          <td class="data-style"><%= ship.container_max %></td>
+          <td class="data-style"><%= ship.payload %></td>
+          <td class="data-style"><%= ship.location %></td>
+          <td class="data-style"><%= ship.shipper.id %></td>
+          <td class="data-style"><%= image_tag ship.avatar.url(:thumb), class: "avatar-img" %></td>
       </tr>
 
     <% end %>
@@ -58,32 +58,32 @@
   <table class="dash_tables">
 
   <tr>
-      <th>Job ID</th>
-      <th>Name</th>
-      <th>Descritpion</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>Cost</th>
-      <th>Total Containers</th>
-      <th>Ship(s)</th>
-      <th>Shipper ID</th>
+      <th class="row-style class="data-style"">Job ID</th>
+      <th class="row-style class="data-style"">Name</th>
+      <th class="row-style class="data-style"">Descritpion</th>
+      <th class="row-style class="data-style"">Origin</th>
+      <th class="row-style class="data-style"">Destination</th>
+      <th class="row-style class="data-style"">Cost</th>
+      <th class="row-style class="data-style"">Total Containers</th>
+      <th class="row-style class="data-style"">Ship(s)</th>
+      <th class="row-style class="data-style"">Shipper ID</th>
     </tr>
 
   <% @jobs.each do |job| %>
 
       <tr>
-          <td><%= job.id %></td>
-          <td><%= link_to(job.name, job_path(job.id)) %></td>
-          <td><%= job.description %></td>
-          <td><%= job.origin %></td>
-          <td><%= job.destination %></td>
-          <td><%= job.cost %></td>
-          <td><%= job.total_containers %></td>
+          <td class="data-style"><%= job.id %></td>
+          <td class="data-style"><%= link_to(job.name, job_path(job.id)) %></td>
+          <td class="data-style"><%= job.description %></td>
+          <td class="data-style"><%= job.origin %></td>
+          <td class="data-style"><%= job.destination %></td>
+          <td class="data-style"><%= job.cost %></td>
+          <td class="data-style"><%= job.total_containers %></td>
 
-          <td><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
+          <td class="data-style"><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
           </td>
 
-          <td><%= job.shipper_id %></td>
+          <td class="data-style"><%= job.shipper_id %></td>
       </tr>
 
     <% end %>
@@ -96,26 +96,25 @@
     <table class="dash_tables">
 
     <tr>
-      <th>Contract ID</th>
-      <th>Ship</th>
-      <th>Job Name</th>
-      <th>Job ID</th>
-      <th>Priority</th>
+      <th class="row-style">Contract ID</th>
+      <th class="row-style">Ship</th>
+      <th class="row-style">Job Name</th>
+      <th class="row-style">Job ID</th>
+      <th class="row-style">Priority</th>
 
     </tr>
 
 
     <tr id="ajax"></tr>
 
-
     <% @contracts.reverse.each do |c| %>
 
       <tr>
-          <td><%= c.id %></td>
-          <td><%= c.ship.name %></td>
-          <td><%= c.job.name %></td>
-          <td><%= c.job_id %></td>
-          <td><%= c.priority %></td>
+          <td class="data-style"><%= c.id %></td>
+          <td class="data-style"><%= c.ship.name %></td>
+          <td class="data-style"><%= c.job.name %></td>
+          <td class="data-style"><%= c.job_id %></td>
+          <td class="data-style"><%= c.priority %></td>
       </tr>
 
     <% end %>
