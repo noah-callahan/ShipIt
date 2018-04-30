@@ -1,3 +1,4 @@
+<%# job show and edit  %>
 <h1>Job Name: <%=@job.name%></h1>
 
 <p>Description: <%=@job.description%></p>
@@ -9,5 +10,5 @@
 
 
 
-<%= button_to('Dont click yet', job_path, method: :delete, data: {confirm: "Are you sure?"}) %>
+
 <%= button_to('Edit', edit_job_path(@job.id), method: :get) %>

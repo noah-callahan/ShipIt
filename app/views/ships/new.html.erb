@@ -1,3 +1,5 @@
+<%# assigned to current shipper %>
+
 <div class="table_style">
   <h1>Current Ships</h1>
 
@@ -43,12 +45,11 @@
 
       <div>
           <%= f.label "Location" %>
-          <%= f.text_area :location %>
+          <%= select("ship", "location", options_for_select(LOCATIONS)) %> <%# location constant %>
       </div>
 
       <div>
-          <%= f.label "Shipper ID" %>
-          <%= f.text_area :shipper_id %>
+          <%= f.hidden_field(:shipper_id, :value => current_shipper.id) %> <%# assigned to current shipper %>
       </div>
 
       <div>

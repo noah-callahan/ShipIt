@@ -1,5 +1,4 @@
-<h1>Ships#edit</h1>
-<p>Find me in app/views/ships/edit.html.erb</p>
+<h1>Edit Ship <%=@ship.name%></h1>
 
 <%= form_for @ship, url: ship_path(@ship.id), method: :patch do |f|  %>
 
@@ -20,7 +19,7 @@
 
     <div>
         <%= f.label "Location" %>
-        <%= f.text_area :location %>
+        <%= select("ship", "location", options_for_select(LOCATIONS)) %> <%#locations array%>
     </div>
 
     <div>
