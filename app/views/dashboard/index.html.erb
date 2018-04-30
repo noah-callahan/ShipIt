@@ -1,11 +1,11 @@
 <div class="dash_wrapper">
 <h1>Shipper Dashboard</h1>
 
-<div class="dashboard_buttons"> <%= link_to("Create Ship", new_ship_path) %> </div>
-<div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div>
+<div class="dashboard_buttons"> <%= link_to("Create Ship", new_ship_path) %> </div> <%# new ship  %>
+<div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div> <%# new job  %>
 
 <div class="table_style">
-  <h2>Create Contract</h2>
+  <h2>Create Contract</h2> <%# new contract  %>
     <div class="dash_tables">
        <%= form_with model: @contract, url: contracts_path do |c| %>
 
@@ -24,7 +24,7 @@
 </div>
 
 <div class="table_style">
-  <h2> Current Ships</h2>
+  <h2> Current Ships</h2> <%# display ships  %>
 
   <table class="dash_tables">
     <tr>
@@ -52,21 +52,21 @@
   </table>
 </div>
 
-<div class="table_style">
-  <h2> Current Jobs </h2>
+<div class="table_style" id="job-table">
+  <h2> Current Jobs </h2> <%# display jobs  %>
 
   <table class="dash_tables">
 
   <tr>
-      <th class="row-style class="data-style"">Job ID</th>
-      <th class="row-style class="data-style"">Name</th>
-      <th class="row-style class="data-style"">Descritpion</th>
-      <th class="row-style class="data-style"">Origin</th>
-      <th class="row-style class="data-style"">Destination</th>
-      <th class="row-style class="data-style"">Cost</th>
-      <th class="row-style class="data-style"">Total Containers</th>
-      <th class="row-style class="data-style"">Ship(s)</th>
-      <th class="row-style class="data-style"">Shipper ID</th>
+      <th class="row-style data-style">Job ID</th>
+      <th class="row-style data-style">Name</th>
+      <th class="row-style data-style">Descritpion</th>
+      <th class="row-style data-style">Origin</th>
+      <th class="row-style data-style">Destination</th>
+      <th class="row-style data-style">Cost</th>
+      <th class="row-style data-style">Total Containers</th>
+      <th class="row-style data-style">Ship(s)</th>
+      <th class="row-style data-style">Shipper ID</th>
     </tr>
 
   <% @jobs.each do |job| %>
@@ -90,8 +90,8 @@
     </table>
 </div>
 
-<div class="table_style">
-    <h2> Current Contracts </h2>
+<div class="table_style" id="contract-table">
+    <h2> Current Contracts </h2> <%# display contracts  %>
 
     <table class="dash_tables">
 
@@ -103,9 +103,6 @@
       <th class="row-style">Priority</th>
 
     </tr>
-
-
-    <tr id="ajax"></tr>
 
     <% @contracts.reverse.each do |c| %>
 

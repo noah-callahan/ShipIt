@@ -4,6 +4,8 @@ class ContractsController < ApplicationController
 
   def create
     @c = Contract.new(contract_params)
+    @jobs = Job.all
+    @contracts = Contract.all
     if @c.save
       respond_to do |format|
         format.js

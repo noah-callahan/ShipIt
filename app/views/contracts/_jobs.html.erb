@@ -1,0 +1,37 @@
+<%# reloads entire table instead of prepending/appending to loaded table  %>
+
+<h2> Current Jobs </h2>
+
+  <table class="dash_tables">
+
+  <tr>
+      <th class="row-style data-style">Job ID</th>
+      <th class="row-style data-style">Name</th>
+      <th class="row-style data-style">Descritpion</th>
+      <th class="row-style data-style">Origin</th>
+      <th class="row-style data-style">Destination</th>
+      <th class="row-style data-style">Cost</th>
+      <th class="row-style data-style">Total Containers</th>
+      <th class="row-style data-style">Ship(s)</th>
+      <th class="row-style data-style">Shipper ID</th>
+    </tr>
+
+  <% @jobs.each do |job| %>
+
+      <tr>
+          <td class="data-style"><%= job.id %></td>
+          <td class="data-style"><%= link_to(job.name, job_path(job.id)) %></td>
+          <td class="data-style"><%= job.description %></td>
+          <td class="data-style"><%= job.origin %></td>
+          <td class="data-style"><%= job.destination %></td>
+          <td class="data-style"><%= job.cost %></td>
+          <td class="data-style"><%= job.total_containers %></td>
+
+          <td class="data-style"><% if job.ships.empty? %><span style="color:red">UNASSIGNED</span><% else %><% @shipnames = job.ships.collect(&:name)%><%@shipnames.each do |a|%><%=a%> <%end%><% end %>
+          </td>
+
+          <td class="data-style"><%= job.shipper_id %></td>
+      </tr>
+
+    <% end %>
+    </table>

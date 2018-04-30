@@ -1,1 +1,2 @@
-$("<%= j render 'contracts' %>").prependTo("#ajax");
+document.getElementById("contract-table").innerHTML = "<%= j render 'contracts' %>"; <%# renders contracts partial and updates table  %>
+document.getElementById("job-table").innerHTML = "<%= j render 'jobs' %>";  <%# renders jobs partial and updates table  %>

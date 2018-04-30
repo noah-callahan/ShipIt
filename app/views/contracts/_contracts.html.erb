@@ -1,6 +1,27 @@
+<%# reloads entire table instead of prepending/appending to loaded table  %>
 
-    <td><%= @c.id %></td>
-    <td><%= @c.ship.name %></td>
-    <td><%= @c.job.name %></td>
-    <td><%= @c.job_id %></td>
-    <td><%= @c.priority %></td>
+<h2> Current Contracts </h2>
+
+    <table class="dash_tables">
+
+    <tr>
+      <th class="row-style">Contract ID</th>
+      <th class="row-style">Ship</th>
+      <th class="row-style">Job Name</th>
+      <th class="row-style">Job ID</th>
+      <th class="row-style">Priority</th>
+
+    </tr>
+
+    <% @contracts.reverse.each do |c| %>
+
+      <tr>
+          <td class="data-style"><%= c.id %></td>
+          <td class="data-style"><%= c.ship.name %></td>
+          <td class="data-style"><%= c.job.name %></td>
+          <td class="data-style"><%= c.job_id %></td>
+          <td class="data-style"><%= c.priority %></td>
+      </tr>
+
+    <% end %>
+    </table>
