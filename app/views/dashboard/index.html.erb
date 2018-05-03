@@ -5,7 +5,9 @@
 <div class="dashboard_buttons"> <%= link_to("Create Job", new_job_path) %> </div> <%# new job  %>
 
 <div class="table_style">
+  
   <h2>Create Contract</h2> <%# new contract  %>
+  <div><h4 id="contract-error" style="color:red; text-align: center;"></h4></div>
     <div class="dash_tables">
        <%= form_with model: @contract, url: contracts_path do |c| %>
 

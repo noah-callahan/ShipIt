@@ -13,7 +13,10 @@ class ContractsController < ApplicationController
         format.js
       end
     else
-      redirect_to dashboard_index_path
+      respond_to do |format|
+        format.html 
+        format.js {render "exists.js.erb" }
+      end
     end
   end
 
