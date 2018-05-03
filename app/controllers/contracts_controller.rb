@@ -4,14 +4,19 @@ class ContractsController < ApplicationController
 
   def create
     @c = Contract.new(contract_params)
+    @exists = Contract.where(["ship_id = ? and job_id = ?", @c.ship_id, @c.job_id]).first
     @jobs = Job.all
     @contracts = Contract.all
-    if @c.save
+    if @exists == nil
+      @c.save
       respond_to do |format|
         format.js
       end
     else
-      redirect_to '/'
+      respond_to do |format|
+        format.html 
+        format.js {render "exists.js.erb" }
+      end
     end
   end
 

@@ -1,4 +1,9 @@
 <%# new job  %>
+<% if flash[:error] %>
+  <% flash[:error].each do |m| %>
+    <strong style="color:red; text-transform:uppercase;"><%=m%></strong><br /><br />
+  <% end %>
+<% end %>
 
 <div class="table_style">
   <h1>Create a new Job</h1>
@@ -48,14 +53,6 @@
     </div>
   <% end %>
 
-  <% if false %>
-
-  <div class="field form">
-      <%= f.label :ship_id %><br />
-      <%= select("job","ship_id", options_for_select(ships_array)) %>
-  </div>
-
-  <% end %>
 </div>
 
 <div> <%= link_to("<< back to dashboard", dashboard_index_path) %> </div>

@@ -1,37 +1,38 @@
-<h1>Edit Job: #{@job.name}</h1>
+<div class="table_style">
 
+<h1>Edit Job: <%=@job.name%></h1>
 
 <%= form_for @job, url: job_path(@job.id), method: :patch do |f|  %>
 
 
-    <div>
+    <div class="field form">
         <%= f.label "Name" %>
         <%= f.text_field :name %>
     </div>
 
-    <div>
+    <div class="field form">
         <%= f.label "Description" %>
         <%= f.text_area :description %>
     </div>
 
-    <div>
-        <%= f.label "Origin" %>
-        <%= f.text_area :origin %>
+    <div class="field form">
+      <%= f.label :origin %> <br />
+      <%= select("job", "origin", options_for_select(LOCATIONS)) %> <%# list of locations  %>
     </div>
 
-    <div>
-        <%= f.label "Destination" %>
-        <%= f.text_area :destination %>
+    <div class="field form">
+      <%= f.label :destination %><br />
+      <%= select("job", "destination", options_for_select(LOCATIONS)) %> 
     </div>
 
-    <div>
-        <%= f.label "Cost" %>
-        <%= f.text_area :cost %>
+    <div class="field form">
+      <%= f.label :cost %><br />
+      <%= select("job", "cost", options_for_select([[1500], [2000], [2500], [3000], [3500], [4000]])) %>
     </div>
 
-    <div>
-        <%= f.label "Total Containers" %>
-        <%= f.text_area :total_containers %>
+    <div class="field form">
+      <%= f.label :total_containers %><br />
+      <%= select("job", "total_containers", options_for_select([['9000'], ['7500'], ['6000'], ['4500'], ['3000'], ['1500']])) %>
     </div>
 
     <div>
@@ -44,3 +45,5 @@
     </div>
 
 <% end %>
+
+</div>
