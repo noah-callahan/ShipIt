@@ -13,8 +13,13 @@ class JobsController < ApplicationController
   end
 
   def create
-    Job.create(job_params)
-    redirect_to dashboard_index_path
+    @job = Job.create(job_params)
+    if @job.save
+      redirect_to dashboard_index_path
+    else
+      flash[:error] = @job.errors.full_messages
+      redirect_to new_job_path
+    end
   end
 
   def edit
